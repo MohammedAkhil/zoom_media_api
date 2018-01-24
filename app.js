@@ -11,12 +11,11 @@ var users = require('./routes/users');
 var app = express();
 
 // Server start.
-app.listen(8080, function (req, err) {
-    if (err) {
-        console.log(err);
-    } else {
-      console.log('Server is up at' + 8080);
-    }
+app.set( 'port', ( process.env.PORT || 8080 ));
+
+// Start node server
+app.listen( app.get( 'port' ), function() {
+    console.log( 'Node server is running on port ' + app.get( 'port' ));
 });
 
 // view engine setup
